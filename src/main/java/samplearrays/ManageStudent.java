@@ -7,23 +7,33 @@ public class ManageStudent {
 
     // 2) Find the Oldest Student
     public static Student findOldest(Student[] students) {
+        if (students.length == 0) return new Student();
+
+        Student oldest = students[0];
+        for (Student stud : students) if (stud.getAge() > oldest.getAge()) oldest = stud;
 
         return oldest;
     }
 
     // 3) Count Adult Students (age >= 18)
     public static int countAdults(Student[] students) {
-
+        int count = 0;
+        for (Student stud : students) count += stud.isAdult();
+        return count;
     }
 
     // 4) Average Grade (returns NaN if no students or grades)
     public static double averageGrade(Student[] students) {
+        if (student.length == 0) return Double.NaN;
 
+        int sumGrades = 0;
+        for (Student stud : students) sumGrades += stud.getGrade();
+        return sumGrades / students.length;
     }
 
     // 5) Search by Name (case-sensitive; change to equalsIgnoreCase if desired)
     public static Student findStudentByName(Student[] students, String name) {
-
+        // TODO: stopped here
     }
 
     // 6) Sort Students by Grade (descending)
