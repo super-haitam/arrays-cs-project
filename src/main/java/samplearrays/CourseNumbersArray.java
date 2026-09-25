@@ -1,5 +1,6 @@
 package samplearrays;
-package java.utils.Arrays;
+
+import java.util.Arrays;
 
 public class CourseNumbersArray {
     public static void main(String[] args) {
@@ -9,7 +10,9 @@ public class CourseNumbersArray {
         int[] updatedCourses = Arrays.copyOf(registeredCourses, registeredCourses.length + 1);
         updatedCourses[updatedCourses.length-1] = newCourse;
 
-        for (int course : updatedCourses) System.out.println(course);
+        System.out.println("Courses: {");
+        for (int course : updatedCourses) System.out.println("\t" + course);
+        System.out.println("}");
 
         int searchCourse;
         boolean found;
@@ -17,13 +20,13 @@ public class CourseNumbersArray {
         searchCourse = 1020;
 
         found = false;
-        for (int course : updatedCourses) if (course == searchCourse) { System.out.println(searchCourse + " exists."); found = true; }
-        if (!found) System.out.println(searchCourse + " does not exist.");
+        for (int course : updatedCourses) if (course == searchCourse) { System.out.println(searchCourse + " is a valid course."); found = true; }
+        if (!found) System.out.println(searchCourse + " is not a valid course.");
 
         searchCourse = 67;
 
         found = false;
-        for (int course : updatedCourses) if (course == searchCourse) { System.out.println(searchCourse + " exists."); found = true; }
-        if (!found) System.out.println(searchCourse + " does not exist.");
+        for (int course : updatedCourses) if (course == searchCourse) { System.out.println(searchCourse + " is a valid course."); found = true; }
+        if (!found) System.out.println(searchCourse + " is not a valid course.");
     }
 }

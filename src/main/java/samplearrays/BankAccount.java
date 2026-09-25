@@ -15,32 +15,34 @@ public class BankAccount {
 
     public void deposit(double amount){
         if (amount < 0) {
-             System.out.println("Error: Deposit of amount (" + amount + "$) failed.");
-             return;
+            System.out.println("Error: Deposit of amount (" + amount + "$) failed.");
+            return;
         }
 
         this.currentBalance += amount;
         this.transactions[index++] = amount;
-        System.out.println("Deposit: (" + this.name + ", " + amount + "$) - Balance: " + this.currentBalance);
+        System.out.println("Deposit: (" + this.name + ", " + amount + "$) - Balance: " + this.currentBalance + "$");
     }
 
     public void withdraw(double amount){
         if (amount > this.currentBalance) {
-            System.out.println("Error: Withdrawal of amount (" + amount + "$) failed.");
+            System.out.println("Error: Withdrawal of amount (" + amount + "$) from a balance of (" + currentBalance + "$) has failed.");
             return;
         }
 
         this.currentBalance -= amount;
         this.transactions[index++] = -amount;
-        System.out.println("Withdrawal: (" + this.name + ", " + amount + "$) - Balance: " + this.currentBalance);
+        System.out.println("Withdrawal: (" + this.name + ", " + amount + "$) - Balance: " + this.currentBalance + "$");
     }
 
     public void displayTransactions(){
-        for (double trans : transactions) System.out.println(trans);
+        System.out.println("Transactions so far: {");
+        for (int i = 0; i < index; ++i) System.out.println("\t" + this.transactions[i] + "$");
+        System.out.println("}");
     }
 
     public void displayBalance(){
-        System.out.println(this.currentBalance);
+        System.out.println("Balance: " + this.currentBalance + "$");
     }
 
     public static void main(String[] args) {
